@@ -60,22 +60,22 @@ class WebServerTest {
 
 // ***** Tests for Routing *****
 
-//  @Test
-//  fun `can route to hello handler`() {
-//    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
-//    assertEquals("Hello, Fred!", route(request).body)
-//  }
-//
-//  @Test
-//  fun `can route to homepage handler`() {
-//    assertEquals("This is Imperial.", route(Request("http://www.imperial.ac.uk/")).body)
-//    assertEquals("This is DoC.", route(Request("http://www.imperial.ac.uk/computing")).body)
-//  }
-//
-//  @Test
-//  fun `gives 404 when no matching route`() {
-//    assertEquals(Status.NOT_FOUND, route(Request("http://www.imperial.ac.uk/not-here")).status)
-//  }
+  @Test
+  fun `can route to hello handler`() {
+    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
+    assertEquals("Hello, Fred!", route(request).body)
+  }
+
+  @Test
+  fun `can route to homepage handler`() {
+    assertEquals("This is Imperial.", route(Request("http://www.imperial.ac.uk/")).body)
+    assertEquals("This is DoC.", route(Request("http://www.imperial.ac.uk/computing")).body)
+  }
+
+  @Test
+  fun `gives 404 when no matching route`() {
+    assertEquals(Status.NOT_FOUND, route(Request("http://www.imperial.ac.uk/not-here")).status)
+  }
 
 //  ***** Tests for the Extensions *****
 
