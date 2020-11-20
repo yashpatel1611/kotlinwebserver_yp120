@@ -55,7 +55,7 @@ fun homePageHandler(request: Request): Response = Response(Status.OK, "This is I
 fun compPageHandler(request: Request): Response = Response(Status.OK, "This is DoC.")
 
 // Handler for say-hello page
-// When called will return a greeting based on the url parameters
+// When called it will return a greeting based on the url parameters
 // Uses a for loop to loop through all the parameters of the url and
 // adjusts the response body accordingly
 fun helloHandler(request: Request): Response {
