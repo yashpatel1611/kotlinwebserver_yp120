@@ -40,23 +40,23 @@ class WebServerTest {
 
 // ***** Tests for Handlers *****
 
-//  @Test
-//  fun `says hello world`() {
-//    val request = Request("http://www.imperial.ac.uk/say-hello")
-//    assertEquals("Hello, World!", helloHandler(request).body)
-//  }
-//
-//  @Test
-//  fun `can be customised with particular name`() {
-//    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
-//    assertEquals("Hello, Fred!", helloHandler(request).body)
-//  }
-//
-//  @Test
-//  fun `can process multiple params`() {
-//    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred&style=shouting")
-//    assertEquals("HELLO, FRED!", helloHandler(request).body)
-//  }
+  @Test
+  fun `says hello world`() {
+    val request = Request("http://www.imperial.ac.uk/say-hello")
+    assertEquals("Hello, World!", helloHandler(request).body)
+  }
+
+  @Test
+  fun `can be customised with particular name`() {
+    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred")
+    assertEquals("Hello, Fred!", helloHandler(request).body)
+  }
+
+  @Test
+  fun `can process multiple params`() {
+    val request = Request("http://www.imperial.ac.uk/say-hello?name=Fred&style=shouting")
+    assertEquals("HELLO, FRED!", helloHandler(request).body)
+  }
 
 // ***** Tests for Routing *****
 

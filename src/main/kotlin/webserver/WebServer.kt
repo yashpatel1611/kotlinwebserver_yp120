@@ -2,8 +2,8 @@ package webserver
 
 fun main() {
     var urls = listOf("http://www.imperial.ac.uk/?q=xxx", "http://www.imperial.ac.uk/?q=xxx&rr=zzz", "http://www.imperial.ac.uk/")
-    for(i in urls){
-        queryParams(i)
+    for (i in urls) {
+        println(queryParams(i))
     }
 }
 
@@ -27,6 +27,43 @@ fun queryParams(url: String): List<Pair<String, String>> {
         }
     }
     return pairList
+}
+
+fun helloHandler(request: Request): Response {
+    var responseBody: String = "Hello, World!"
+    val params = queryParams(request.url)
+    for ((paramKey, paramValue) in params) {
+        if (paramKey == "name") {
+            responseBody = "Hello, $paramValue!"
+
+        }
+        if (paramKey == "style") {
+            if (paramValue == "shouting") {
+                responseBody = responseBody.toUpperCase()
+            }
+        }
+
+    }
+    return Response(Status.OK, responseBody)
+}
+
+fun rootHandler(request: Request): Response {
+    return Response(Status.OK, "This is Imperial")
+}
+
+fun compHandler(request: Request): Response{
+    return Response(Status.OK, "This is DoC")
+}
+
+var mappings = listOf(Pair("/say-hello", ::helloHandler), Pair("/", ::rootHandler), Pair("/computing", ::compHandler))
+fun route(request: Request): Response {
+    var pagePath = path(request.url)
+    for((page, funct) in mappings){
+        if(page == pagePath){
+            funct
+        }
+    }
+    return Response(Status.NOT_FOUND, "")
 }
 
 // http handlers for a particular website...
